@@ -12,6 +12,7 @@ buildscript {
 plugins {
 	id 'org.springframework.boot' version '2.2.6.RELEASE'
 	id 'io.spring.dependency-management' version '1.0.9.RELEASE'
+	id "com.moowork.node" version "1.3.1"
 	id 'java'
 }
 
@@ -20,7 +21,7 @@ apply plugin: 'com.google.cloud.tools.appengine'
 appengine {
 	deploy {
 		projectId = 'yahia-ammar-devs-apps-273614'
-		version = 'v1'
+		version = 'v2'
 	}
 }
 
@@ -32,10 +33,23 @@ repositories {
 	mavenCentral()
 }
 
+/*task installFront(type: NodeTask){
+	script = file("${project.projectDir}/../vue-gcp-demo")
+	args = ['install']
+}
 
+task buildFront(type: NodeTask, dependsOn: installFront) {
+	script = file("${project.projectDir}/../vue-gcp-demo")
+	args = ['build']
+}
+
+compileJava.dependsOn("buildFront")*/
 
 dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-web'
+	compileOnly 'org.projectlombok:lombok:1.18.12'
+	annotationProcessor 'org.projectlombok:lombok:1.18.12'
+
 	testImplementation('org.springframework.boot:spring-boot-starter-test') {
 		exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
 	}

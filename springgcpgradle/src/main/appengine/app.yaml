@@ -1,6 +1,8 @@
 runtime: java
 env: flex
-service: test-backend
+resources:
+  memory_gb: 4
+service: backend-test
 runtime_config:
   jdk: openjdk8
 handlers:
