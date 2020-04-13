@@ -1,4 +1,5 @@
 # vue-gcp-demo
+vue js app. Can be deployed on GCP App Engine using "gcloud app deploy". The app display the list of books sent from springgcpgradle backend app. In addition we can add new books.
 
 ## Project setup
 ```
